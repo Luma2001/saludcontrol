@@ -1,0 +1,18 @@
+{
+  "name": "saludcontrol",
+  "version": "1.0.0",
+  "description": "Desarrollado para llevar control de medicamentos y turnos de personas bajo nuestro cuidado",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luma",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.11.5",
+    "sequelize": "^6.37.5"
+  }
+}
