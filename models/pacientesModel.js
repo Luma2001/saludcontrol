@@ -1,3 +1,5 @@
+//Vamos a crear una abtracción que representa la tabla en la base de datos
+
 const db=require("../data/db.js")
 
 const {DataTypes} = require("sequelize");

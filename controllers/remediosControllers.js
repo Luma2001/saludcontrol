@@ -1,4 +1,5 @@
 const remedioModel = require("../models/remediosModel.js")
+const {Op} = require ("sequelize");
 
 //Funciones que traen registros guardados
         const mostrarRemedios = async (req,res)=>{
@@ -8,9 +9,9 @@ const remedioModel = require("../models/remediosModel.js")
             } catch (error) {
                 res.json({message:error.message})
             }
-        };// ok en thunder mostrar remedios
+        };//ok 
 
-        const buscarRemedio =async  (req,res)=>{
+        const buscarRemedio = async  (req,res)=>{
             try {
                 //console.log("Params recieved: " , req.params.id);
                 const id = parseInt(req.params.id)
@@ -26,6 +27,49 @@ const remedioModel = require("../models/remediosModel.js")
                 res.status(500).json({message:error.message})
             }
         };//ok
+
+        const verRemediosDe = async (req,res)=>{
+            try {
+                const remedios = await remedioModel.findAll({
+                    where: {
+                        codU:req.params.codU,
+                    },
+                });
+                res.json(remedios)
+            } catch (error) {
+                res.json({message:error.message})
+            }
+        };//ok se filtra lista de remedios por paciente
+
+        const verRemEstadoDe = async(req,res)=>{
+            try {
+                const remedios = await remedioModel.findAll({
+                    where: {
+                        codU:req.params.codU,
+                        lista_actual:req.params.enlista,
+                    },
+                });
+                res.json(remedios)
+            } catch (error) {
+                res.json({message:error.message})
+            }
+        }//ok se filtra lista de remedios por paciente y si pertenece a la lista actual o no
+
+        const bajoStockRemedios = async (req,res)=>{
+            try {
+                const remedios = await remedioModel.findAll({
+                    attributes:["nombre","stock"],
+                    where: {
+                        stock:{
+                            [Op.lte]:1,
+                        }
+                    },
+                });
+                res.json(remedios)
+            } catch (error) {
+                res.json({message:error.message})
+            }            
+        }//ok muestra los remedios que poseen bajo stock
 
 
 //Función que crea nuevo registro en la tabla
@@ -68,5 +112,5 @@ const remedioModel = require("../models/remediosModel.js")
         }//ok
 
 //para exportar las funciones creadas
-module.exports = {mostrarRemedios, buscarRemedio,agregarRemedio,actualizarRemedio,borrarRemedio}
+        module.exports = {mostrarRemedios, buscarRemedio,verRemediosDe,verRemEstadoDe,bajoStockRemedios,agregarRemedio,actualizarRemedio,borrarRemedio}
 

@@ -27,6 +27,26 @@ const medicosModel = require("../models/medicosModel.js")
             }
         };//ok
 
+        const buscarEspecialistas = async (req,res)=>{
+            try {
+
+                const medicos = await medicosModel.findAll({
+                    where: {
+                        especialidad:req.params.especialidad,
+                    },
+                });
+                res.json(medicos);
+
+                if (!medicos) {
+                    return res.status(404).json({ message: "medicos not found" });
+                }    
+
+            } catch (error) {
+                console.error("Error: "+ error.message);
+                res.status(500).json({message:error.message})
+            }
+        };//ok
+
 
 //Función que crea nuevo registro en la tabla
         const agregarMedico= async (req,res)=>{
@@ -68,5 +88,5 @@ const medicosModel = require("../models/medicosModel.js")
         }//ok
 
 //para exportar las funciones creadas
-module.exports = {mostrarMedicos, buscarMedico, agregarMedico,actualizarMedico, borrarMedico}
+module.exports = {mostrarMedicos, buscarMedico, buscarEspecialistas,agregarMedico,actualizarMedico, borrarMedico}
 
