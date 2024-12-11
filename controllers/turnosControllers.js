@@ -1,4 +1,5 @@
-const turnoModel = require(("../models/turnosModel.js"))
+const turnoModel = require(("../models/turnosModel.js"));
+const { Op } = require("sequelize");
 
 //Funciones que traen registros guardados
         const traerTurnos = async (req,res)=>{
@@ -24,6 +25,37 @@ const turnoModel = require(("../models/turnosModel.js"))
                 res.status(500).json({message:error.message})        
             }
         };//ok en thunder Buscar un turno
+
+        const turnoFecha = async (req,res)=>{
+            try {
+                const {desde,hasta} = req.params;
+                //Validando formato y esxistencia de las fechas
+                const fechaDesde = new Date(desde);
+                const fechaHasta = new Date(hasta);
+
+                if (isNaN(fechaDesde) || isNaN(fechaHasta)){
+                    return res.status (400).json({message:"Fecha inválidas. Use el formato YYYY-MM-DD."});
+                }
+                
+                if (fechaDesde>fechaHasta) {
+                    return res.status(400).json({message:"La fecha 'desde' no puede ser mayor que la fecha 'hasta'."});
+                }
+
+                const turnos = await turnoModel.findAll({
+                    where:{
+                        fecha:{
+                            [Op.between]: [req.params.desde, req.params.hasta],
+                        }
+                    }
+                });
+                res.json(turnos)
+                if(!turnos) {
+                    return res.status(404).json({message:"Turnos no encontrado"});
+                }
+            } catch (error) {
+                res.json({message:error.message})
+            }
+        }//filtra turnos entre dos fechas
 
 
 //Funciones que crean nuevos registros en la tabla
@@ -67,4 +99,4 @@ const turnoModel = require(("../models/turnosModel.js"))
 
 
 //para exportar las funciones creadas
-module.exports = {traerTurnos, traerUnTurno, crearTurno, actualizarTurno, borrarTurno};
+module.exports = {traerTurnos, traerUnTurno, turnoFecha,crearTurno, actualizarTurno, borrarTurno};
