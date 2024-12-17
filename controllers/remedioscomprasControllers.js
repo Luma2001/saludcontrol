@@ -8,7 +8,7 @@ const comprasModel = require("../models/remediosCompraModel");
         } catch (error) {
             res.json({message:error.message})
         }
-    };//
+    };//ok
 
     const buscarCompra =async  (req,res)=>{
         try {
@@ -25,7 +25,7 @@ const comprasModel = require("../models/remediosCompraModel");
             console.error("Error: "+ error.message);
             res.status(500).json({message:error.message})
         }
-    };//
+    };//ok
 
 
 //Función que crea nuevo registro en la tabla
@@ -37,7 +37,7 @@ const comprasModel = require("../models/remediosCompraModel");
             console.error("Error: "+ error.message);
             res.status(500).json({message:error.message})            
         }
-    };//
+    };//ok
 
 //para exportar las funciones creadas
 module.exports = {mostrarCompras, buscarCompra, agregarCompra}

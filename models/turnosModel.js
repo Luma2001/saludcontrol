@@ -13,4 +13,9 @@ const turnoModel = db.define ("turno", {
     IDE:{type:DataTypes.INTEGER},
 })
 
+// //Relaciones
+// turno.belongsTo(usuario, {foreignKey:"codU"})
+// turno.belongsTo(profesional, {foreignKey:"codMed"})
+// turno.belongsTo(profesional, {foreignKey:"codMed"})
+
 module.exports = turnoModel
