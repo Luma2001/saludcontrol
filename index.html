@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./css/styles.css"> -->
+    <title>Salud Control</title>
+</head>
+<body>
+    <header class="header"></header>
+    <main class="main">
+        
+        <section id="formulario">            
+            
+            <!-- <img src="./img/fondo.png" alt="imagen de fondo"> -->
+
+            <!-- <form id="ingresar-medicamento">
+                <h1>Lista de medicamentos</h1>
+                    <h3></h3>
+                
+                <label for="nombre">Nombre Completo</label>
+                <input name="nombre" id="nombre" type="text" placeholder="nombre completo..." required>
+                <label for="email">E-mail</label>
+                <input name="email" id="email" type="text" placeholder="e-mail..." required>
+                <label for="grupo">Grupo</label>
+                <select name="grupo"  id="grupo" required>
+                    <option value= ""  hidden selected>Seleccionar Grupo</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                </select>
+                <div class="contenedor-buttons">
+                    <button type="submit">Ingresar a Grupo</button>
+                    <div id="ir-a-tabla"><a href="#tabla-grupos">Ver Tabla Grupos</a></div>
+                </div>
+                
+            </form> -->
+            
+        </section>
+
+        <section id="tabla-medicamentos">
+            <!-- <img src="./img/logo.png" alt="imagen de logo"> -->
+            <h3>Listado de Medicamentos</h3>
+            <div id="buscador">
+                    <label for="buscar-medicamentos">Buscar por Fecha:</label>
+                    <input type="date" name="" id=""><input type="date" name="" id="">
+                    <!-- <select name="buscar-grupo"  id="buscar-grupo" required>
+                        <option value= ""  hidden selected>Seleccionar Grupo</option>
+                        <option value ="todos">Mostrar todos</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                    </select> -->
+                    <button id="btnBuscar">Buscar</button>
+            </div>
+            <table class="tabla">
+                <thead id="tabla-header">
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>MARCA</th>
+                        <th>STOCK</th>
+                        <th>PRESENTACIÓN</th>
+                        <th>DIAGNOSTICO</th>
+                        <th>USUARIO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body">                    
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer class="footer">
+        <h4>Desarrollado por Luma2001 con  NodeJs</h4>
+        <p class="anho">Año 2024</p>
+    </footer>
+
+    <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./views/index.js" ></script>
+</body>
+</html>

@@ -1,10 +1,28 @@
-const medicosModel = require("../models/medicosModel.js")
+const medicosModel = require("../models/medicosModel.js");
+const especialidadModel = require("../models/especialidadModel.js");
+const consultorioModel = require("../models/consultorioModel.js");
 
 //Funciones que traen registros guardados
         const mostrarMedicos = async (req,res)=>{
             try {
-                const medicos = await medicosModel.findAll();
+                const medicos = await medicosModel.findAll({
+                    include:[
+                        {
+                        model: especialidadModel,
+                        as: 'especialidad',
+                        attributes:['nombre']
+                        },
+                        {
+                            model:consultorioModel,
+                            as:'consultorio',
+                            attributes:['nombre', 'direccion', 'tel', 'turno_por']
+                        }]
+                    
+                        
+                    
+                });
                 res.json(medicos)
+                console.log(medicos.map(med => med.toJSON()))
             } catch (error) {
                 res.json({message:error.message})
             }
@@ -32,7 +50,7 @@ const medicosModel = require("../models/medicosModel.js")
 
                 const medicos = await medicosModel.findAll({
                     where: {
-                        especialidad:req.params.especialidad,
+                        codEsp:req.params.codEsp,
                     },
                 });
                 res.json(medicos);
@@ -45,7 +63,7 @@ const medicosModel = require("../models/medicosModel.js")
                 console.error("Error: "+ error.message);
                 res.status(500).json({message:error.message})
             }
-        };//ok
+        };//se modificó ver si funciona
 
 
 //Función que crea nuevo registro en la tabla

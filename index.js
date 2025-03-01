@@ -7,8 +7,8 @@ app.use(cors());
 app.use(express.json());
 
 //importo rutas
-        const pacientesRouter = require("./routers/pacientesRouter");
-        const turnosRouter = require("./routers/turnosRouter");
+        const pacientesRouter = require("./routers/pacientesRouter.js");
+        const turnosRouter = require("./routers/turnosRouter.js");
         const consultoriosRouter = require("./routers/consultoriosRouter.js")
         const remediosRouter = require("./routers/remediosRouter.js")
         const medicosRouter = require("./routers/medicosRouter.js");
@@ -17,7 +17,7 @@ app.use(express.json());
         const diagnosticoRouter = require("./routers/diagnosticosRouter.js")
 
 //Rutas creadas
-        app.get ("/", (req,res)=>{res.send('Hola Mundo!')});//sin modularizar
+        // app.get ("/", (req,res)=>{res.send('Hola Mundo!')});//sin modularizar
         app.use ("/paciente", pacientesRouter);
         app.use ("/turnos",turnosRouter);
         app.use ("/consultorios", consultoriosRouter);

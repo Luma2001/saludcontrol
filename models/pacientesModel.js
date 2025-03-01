@@ -14,7 +14,8 @@ const pacienteModel = db.define ("usuario", {
     apellido:{type:DataTypes.STRING},
     direccion:{type:DataTypes.STRING},
     tel:{type:DataTypes.STRING},
-    email:{type:DataTypes.STRING}
+    email:{type:DataTypes.STRING},
+    foto: {type:DataTypes.STRING}
 
   })
 
