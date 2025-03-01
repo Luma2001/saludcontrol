@@ -1,5 +1,8 @@
+const { traerUnTurno } = require("../controllers/turnosControllers.js");
 const db = require("../data/db.js")
 const {DataTypes} = require("sequelize");
+const turnoModel = require("./turnosModel.js");
+const estadoModel = require("./estadoModel.js");
 
 const estadoTurnoModel = db.define("estadoturno",{
     turnoId: {type:DataTypes.INTEGER,

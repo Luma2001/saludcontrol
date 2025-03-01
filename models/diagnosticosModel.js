@@ -1,6 +1,7 @@
 const db = require("../data/db.js");
 
 const {DataTypes} = require("sequelize"); 
+const turnoModel = require("./turnosModel.js");
 
 const diagnosticoModel = db.define("diagnostico",{
     informe:{type:DataTypes.STRING},
