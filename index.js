@@ -6,27 +6,33 @@ const cors= require("cors");
 app.use(cors());
 app.use(express.json());
 
+
 //importo rutas
-        const pacientesRouter = require("./routers/pacientesRouter.js");
-        const turnosRouter = require("./routers/turnosRouter.js");
         const consultoriosRouter = require("./routers/consultoriosRouter.js")
+        const diagnosticoRouter = require("./routers/diagnosticosRouter.js")
+        const medicosRouter = require("./routers/medicosRouter.js");       
         const remediosRouter = require("./routers/remediosRouter.js")
-        const medicosRouter = require("./routers/medicosRouter.js");
         const remediosComprasRouter = require("./routers/remediosComprasRouter.js");
         const remediosEntregaRouter = require("./routers/remediosEntregaRouter.js");
-        const diagnosticoRouter = require("./routers/diagnosticosRouter.js")
+        const turnosRouter = require("./routers/turnosRouter.js");
+        const pacientesRouter = require("./routers/pacientesRouter.js");
+
 
 //Rutas creadas
         // app.get ("/", (req,res)=>{res.send('Hola Mundo!')});//sin modularizar
-        app.use ("/paciente", pacientesRouter);
-        app.use ("/turnos",turnosRouter);
         app.use ("/consultorios", consultoriosRouter);
-        app.use("/remedios", remediosRouter);
+        app.use("/diagnosticos", diagnosticoRouter);
+        //app.use ("/especialidades", especialidadesRouter); Ver si es necesario hacer
+        //app.use ("/estados", estadosRouter); Ver si es necesario hacer
+        //app.use ("/estadoturno", estadoturnoRouter); Ver si es necesario hacer
         app.use("/medicos", medicosRouter);
+        app.use("/remedios", remediosRouter);
         app.use("/compras", remediosComprasRouter);
         app.use("/entregas", remediosEntregaRouter);
-        app.use("/diagnosticos", diagnosticoRouter);
-        
+        app.use ("/turnos",turnosRouter);
+        app.use ("/paciente", pacientesRouter);
+
+
 //importo credenciales para conectarme a la base de datos
         const db = require ("./data/db.js");   
              

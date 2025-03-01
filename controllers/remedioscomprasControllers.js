@@ -1,9 +1,16 @@
 const comprasModel = require("../models/remediosCompraModel");
+const remedioModel = require("../models/remediosModel");
 
 //Funciones que traen registros guardados
     const mostrarCompras = async (req,res)=>{
         try {
-            const compras = await comprasModel.findAll();
+            const compras = await comprasModel.findAll({
+                include:{
+                    model: remedioModel,
+                    as: 'remedio',
+                    attributes:['nombre']
+                }
+            });
             res.json(compras)
         } catch (error) {
             res.json({message:error.message})

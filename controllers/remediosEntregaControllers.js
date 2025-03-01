@@ -1,9 +1,18 @@
 const entregasModel = require("../models/remediosEntregaModel");
+const remedioModel = require("../models/remediosModel");
 
 //Funciones que traen registros guardados
     const mostrarEntregas = async (req,res)=>{
         try {
-            const entregas = await entregasModel.findAll();
+            const entregas = await entregasModel.findAll(
+                {
+                    include:{
+                        model: remedioModel,
+                        as: 'remedio',
+                        attributes:['nombre']
+                    }
+                }
+            );
             res.json(entregas)
         } catch (error) {
             res.json({message:error.message})

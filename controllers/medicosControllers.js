@@ -8,9 +8,9 @@ const consultorioModel = require("../models/consultorioModel.js");
                 const medicos = await medicosModel.findAll({
                     include:[
                         {
-                        model: especialidadModel,
-                        as: 'especialidad',
-                        attributes:['nombre']
+                            model: especialidadModel,
+                            as: 'especialidad',
+                            attributes:['nombre']
                         },
                         {
                             model:consultorioModel,
