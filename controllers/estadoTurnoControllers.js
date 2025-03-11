@@ -2,7 +2,7 @@
 // los estados de cada turno.
 //Cada turno se crea con un estado predeterminado llamado PEDIDO en la tabla turno.
 
-import {estadoTurnoModel} from "../models/estadoTurnoModel.js"
+const estadoTurnoModel = require ("../models/estadoTurnoModel.js");
 
 
 //Creo registro en tabla

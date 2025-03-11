@@ -106,5 +106,5 @@ const consultorioModel = require("../models/consultorioModel.js");
         }//ok
 
 //para exportar las funciones creadas
-module.exports = {mostrarMedicos, buscarMedico, buscarEspecialistas,agregarMedico,actualizarMedico, borrarMedico}
+module.exports = {mostrarMedicos, buscarMedico, buscarEspecialistas,agregarMedico,actualizarMedico, borrarMedico} //son utilizados para hacer las rutas
 

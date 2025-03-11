@@ -10,11 +10,13 @@ app.use(express.json());
 //importo rutas
         const consultoriosRouter = require("./routers/consultoriosRouter.js")
         const diagnosticoRouter = require("./routers/diagnosticosRouter.js")
+        const estadosRouter =require("./routers/estadosRouter.js")
         const medicosRouter = require("./routers/medicosRouter.js");       
         const remediosRouter = require("./routers/remediosRouter.js")
         const remediosComprasRouter = require("./routers/remediosComprasRouter.js");
         const remediosEntregaRouter = require("./routers/remediosEntregaRouter.js");
         const turnosRouter = require("./routers/turnosRouter.js");
+        const estadoTurnoRouter = require("./routers/estadoTurnoRouter.js");
         const pacientesRouter = require("./routers/pacientesRouter.js");
 
 
@@ -23,8 +25,8 @@ app.use(express.json());
         app.use ("/consultorios", consultoriosRouter);
         app.use("/diagnosticos", diagnosticoRouter);
         //app.use ("/especialidades", especialidadesRouter); Ver si es necesario hacer
-        //app.use ("/estados", estadosRouter); Ver si es necesario hacer
-        //app.use ("/estadoturno", estadoturnoRouter); Ver si es necesario hacer
+        app.use ("/estados", estadosRouter); 
+        app.use ("/estadoturno", estadoTurnoRouter); 
         app.use("/medicos", medicosRouter);
         app.use("/remedios", remediosRouter);
         app.use("/compras", remediosComprasRouter);

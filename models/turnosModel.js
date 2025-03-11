@@ -33,8 +33,8 @@ const turnoModel = db.define ("turno", {
 })
 
 //Relaciones
-turnoModel.belongsTo(pacienteModel, {foreignKey:"codU", as:'paciente'})
 turnoModel.belongsTo(medicoModel, {foreignKey:"codMed", as:'profesional'})
+turnoModel.belongsTo(pacienteModel, {foreignKey:"codU", as:'paciente'})
 turnoModel.belongsTo(estadoModel, {foreignKey:"IDE", as:'estado'})
 
 module.exports = turnoModel
